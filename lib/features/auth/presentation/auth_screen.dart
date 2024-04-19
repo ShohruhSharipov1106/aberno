@@ -51,7 +51,6 @@ class _AuthScreenState extends State<AuthScreen> {
             } else if (state.formStatus == FormzSubmissionStatus.inProgress) {
               showAdaptiveDialog(
                   context: context,
-                  barrierColor: Colors.green,
                   builder: (BuildContext context) {
                     return AlertDialog.adaptive(
                       title: LoadingDialog(),

@@ -1,10 +1,7 @@
 import 'package:aberno_test/assets/colors/colors.dart';
 import 'package:aberno_test/assets/constants/images.dart';
 import 'package:aberno_test/features/common/presentation/widgets/w_button.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class DayOffError extends StatelessWidget {
   const DayOffError({super.key});

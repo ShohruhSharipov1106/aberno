@@ -1,5 +1,9 @@
+import 'dart:math';
+
 import 'package:aberno_test/assets/colors/colors.dart';
 import 'package:aberno_test/assets/constants/images.dart';
+import 'package:aberno_test/features/call/presentation/widgets/bottom_sheets/cannot_get_location.dart';
+import 'package:aberno_test/features/call/presentation/widgets/bottom_sheets/sent_location.dart';
 import 'package:aberno_test/features/common/presentation/widgets/w_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -66,7 +70,22 @@ class RequestLocationDialog extends StatelessWidget {
           ),
           SizedBox(height: 16),
           WButton(
-            onTap: () {},
+            onTap: () {
+              Navigator.pop(context);
+              showModalBottomSheet(
+                context: context,
+                backgroundColor: Colors.transparent,
+                useRootNavigator: true,
+                isScrollControlled: true,
+                builder: (context) {
+                  if (Random().nextBool()) {
+                    return CannotGetLocation();
+                  } else {
+                    return SentLocation();
+                  }
+                },
+              );
+            },
             text: "Поделиться",
             height: 50,
             borderRadius: 10,

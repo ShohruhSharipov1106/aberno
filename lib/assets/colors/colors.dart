@@ -18,6 +18,7 @@ const aliminium = _aliminium;
 const aliceBlue = _aliceBlue;
 const manatee = _manatee;
 const sunsetOrange = _sunsetOrange;
+const rockBlue = _rockBlue;
 
 const secondaryColor = _radicalRed2;
 const errorRed = _redOrange;
@@ -80,6 +81,7 @@ const _aliminium = Color(0xFF848A94);
 const _aliceBlue = Color(0xFFE9F1FF);
 const _manatee = Color(0xFF8A8F9B);
 const _sunsetOrange = Color(0xFFF44D4D);
+const _rockBlue = Color(0xFF8F9BB3);
 
 const _redOrange = Color(0xFFFF3B30);
 const _radicalRedWithOpacity1 = Color(0x1AF5365C);

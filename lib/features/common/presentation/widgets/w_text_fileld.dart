@@ -39,6 +39,7 @@ class WTextField extends StatelessWidget {
   final String? counterText;
   final TextStyle? titleStyle;
   final String errorText;
+  final Color borderColor;
   const WTextField({
     this.autoFocus = false,
     this.hasSuffixIcon = false,
@@ -74,6 +75,7 @@ class WTextField extends StatelessWidget {
     this.cursorColor = tiber,
     this.focusColor = disabledButton,
     this.enabledBorder = textFieldDisColor,
+    this.borderColor = Colors.transparent,
     this.titleStyle,
     this.errorText = '',
     super.key,
@@ -119,6 +121,7 @@ class WTextField extends StatelessWidget {
                 InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(1),
+                    borderSide: BorderSide(color: borderColor),
                   ),
                   errorBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
@@ -127,7 +130,7 @@ class WTextField extends StatelessWidget {
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                     borderSide: BorderSide(
-                      color: hasError ? errorRed : textFieldDisColor,
+                      color: hasError ? errorRed : borderColor,
                     ),
                   ),
                   focusedBorder: OutlineInputBorder(
