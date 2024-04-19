@@ -16,7 +16,8 @@ class DayOffSuccess extends StatelessWidget {
         color: white,
         borderRadius: BorderRadius.circular(16),
       ),
-      margin: EdgeInsets.all(20),
+      margin: EdgeInsets.fromLTRB(
+          20, 20, 20, MediaQuery.of(context).viewPadding.bottom + 16),
       padding: EdgeInsets.fromLTRB(30, 20, 30, 20),
       height: 350,
       child: Column(

@@ -55,7 +55,6 @@ class _PasswordTextFieldState extends State<PasswordTextField>
         animationController.reverse();
       }
     }
-    print('suffix tap => ${widget.isObscure}');
     return WTextField(
       title: widget.title,
       controller: widget.controller,

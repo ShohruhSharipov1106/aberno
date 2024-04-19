@@ -6,9 +6,11 @@ import 'package:aberno_test/features/auth/presentation/auth_screen.dart';
 import 'package:aberno_test/features/auth/presentation/widgets/custom.dart';
 import 'package:aberno_test/features/auth/presentation/widgets/dot_indicator.dart';
 import 'package:aberno_test/features/call/presentation/call_screen.dart';
+import 'package:aberno_test/features/call/presentation/screens/select_product_screen.dart';
 import 'package:aberno_test/features/common/presentation/widgets/w_button.dart';
 import 'package:aberno_test/features/common/presentation/widgets/w_scale_animation.dart';
 import 'package:aberno_test/features/navigation/presentation/home.dart';
+import 'package:aberno_test/features/navigation/presentation/navigator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -120,11 +122,11 @@ class _IntroSliderState extends State<IntroSlider>
                 child: _currentPage == widget.product.length - 1
                     ? WButton(
                         onTap: () async {
-                          Navigator.of(context).pushReplacement(
-                            CupertinoPageRoute(
-                              builder: (context) => const AuthScreen(),
-                            ),
+                          Navigator.of(context).pushAndRemoveUntil(
+                            fade(page: const AuthScreen()),
+                            (route) => false,
                           );
+                          ;
                         },
                         text: "Вход",
                       )
@@ -137,10 +139,9 @@ class _IntroSliderState extends State<IntroSlider>
                               onTap: () async {
                                 StorageRepository.putBool(
                                     key: StoreKeys.onboarding, value: true);
-                                Navigator.of(context).pushReplacement(
-                                  CupertinoPageRoute(
-                                    builder: (context) => const HomeScreen(),
-                                  ),
+                                Navigator.of(context).pushAndRemoveUntil(
+                                  fade(page: const AuthScreen()),
+                                  (route) => false,
                                 );
                               },
                               child: Padding(
@@ -156,16 +157,16 @@ class _IntroSliderState extends State<IntroSlider>
                               onTap: () async {
                                 if (_currentPage < widget.product.length - 1) {
                                   _pageController.nextPage(
-                                      duration:
-                                          const Duration(milliseconds: 200),
-                                      curve: Curves.linear);
+                                    duration: const Duration(milliseconds: 200),
+                                    curve: Curves.linear,
+                                  );
                                 } else {
                                   await StorageRepository.putBool(
                                       key: StoreKeys.onboarding, value: true);
                                   Navigator.of(context).pushReplacement(
                                       CupertinoPageRoute(
                                           builder: (context) =>
-                                              const HomeScreen()));
+                                              const AuthScreen()));
                                 }
                               },
                               child: Container(

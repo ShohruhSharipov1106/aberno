@@ -6,6 +6,7 @@ import 'package:aberno_test/features/common/presentation/widgets/w_scale_animati
 import 'package:aberno_test/features/common/presentation/widgets/w_text_fileld.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:jiffy/jiffy.dart';
 import 'package:keyboard_dismisser/keyboard_dismisser.dart';
 
@@ -33,12 +34,21 @@ class _SickDaysScreenState extends State<SickDaysScreen> {
       child: Scaffold(
         appBar: AppBar(
           leading: WScaleAnimation(
-            child: Padding(padding: EdgeInsets.fromLTRB(20, 8, 8, 8)),
-            onTap: () {},
+            child: Padding(
+              padding: EdgeInsets.fromLTRB(20, 8, 8, 8),
+              child: SvgPicture.asset(
+                AppIcons.arrowLeft,
+                width: 24,
+                height: 24,
+              ),
+            ),
+            onTap: () {
+              Navigator.pop(context);
+            },
           ),
           elevation: 0,
           centerTitle: true,
-          leadingWidth: 80,
+          leadingWidth: 60,
           title: Text(
             "Больничный",
             style: Theme.of(context).textTheme.displaySmall!.copyWith(

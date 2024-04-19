@@ -33,7 +33,11 @@ class _InputReasonState extends State<InputReason> {
         borderRadius: BorderRadius.circular(16),
       ),
       margin: EdgeInsets.fromLTRB(
-          20, 20, 20, MediaQuery.of(context).size.height * 0.35),
+          20,
+          20,
+          20,
+          MediaQuery.of(context).size.height * 0.35 +
+              MediaQuery.of(context).viewInsets.bottom),
       padding: const EdgeInsets.fromLTRB(30, 20, 30, 20),
       height: 280,
       child: Column(

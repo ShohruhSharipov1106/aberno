@@ -23,6 +23,7 @@ class SplashScreen extends StatelessWidget {
           decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage(AppImages.authBackground),
+              fit: BoxFit.cover,
             ),
           ),
           child: Column(

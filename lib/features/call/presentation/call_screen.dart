@@ -116,17 +116,7 @@ class _CallScreenState extends State<CallScreen>
     return Scaffold(
       appBar: AppBar(
         leading: AppBarLeading(
-          onTap: () {
-            showModalBottomSheet(
-              context: context,
-              backgroundColor: Colors.transparent,
-              useRootNavigator: true,
-              isScrollControlled: true,
-              builder: (context) {
-                return DayOffSuccess();
-              },
-            );
-          },
+          onTap: () {},
         ),
         elevation: 0,
         centerTitle: true,

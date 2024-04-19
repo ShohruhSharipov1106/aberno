@@ -66,6 +66,7 @@ class _AppState extends State<App> {
           builder: (context, child) {
             return BlocListener<AuthenticationBloc, AuthenticationState>(
               listener: (context, state) {
+                StorageRepository.deleteBool(StoreKeys.isAuthenticated);
                 switch (state.status) {
                   case AuthenticationStatus.unauthenticated:
                     if (StorageRepository.getBool(StoreKeys.onboarding)) {
